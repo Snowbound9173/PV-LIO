@@ -124,6 +124,7 @@ public:
     init_octo_ = false;
     update_enable_ = true;
     update_cov_enable_ = true;
+    
     max_plane_update_threshold_ = layer_point_size_[layer_];
     for (int i = 0; i < 8; i++) {
       leaves_[i] = nullptr;

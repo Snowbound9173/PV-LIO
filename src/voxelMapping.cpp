@@ -970,7 +970,8 @@ int main(int argc, char** argv)
                     sigma_pv[1] = sqrt(sigma_pv[1]);
                     sigma_pv[2] = sqrt(sigma_pv[2]);
                 }
-
+                std::cout << "[init_map] max_layer: " << max_layer << std::endl;
+                std::cout << "[init_map] layer_size: " << layer_size.size() << std::endl;
                 buildVoxelMap(pv_list, max_voxel_size, max_layer, layer_size,
                               max_points_size, max_points_size, min_eigen_value,
                               voxel_map);
