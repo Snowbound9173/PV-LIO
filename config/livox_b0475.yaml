@@ -1,27 +1,28 @@
 common:
     lid_topic:  "/livox/lidar"
     imu_topic:  "/livox/imu"
+    #    imu_topic:  "/livox/imu"
     time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
 
 preprocess:
-    lidar_type: 1                # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR,
-    scan_line: 6
-    scan_rate: 10                # note to self: Check if it's Hz?
+    lidar_type: 1                # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR, 
+    scan_line:  6
+    scan_rate: 10
     blind: 0.5
     point_filter_num: 1
 
 mapping:
     down_sample_size: 0.4
     max_iteration: 4
-    voxel_size: 2.0
+    voxel_size: 1
     max_layer: 4                # 4 layer, 0, 1, 2, 3
     layer_point_size: [ 5, 5, 5, 5, 5 ]
     plannar_threshold: 0.01
     max_points_size: 1000
     max_cov_points_size: 1000
 
-    fov_degree:    120
-    det_range:     200.0
+    fov_degree:    360
+    det_range:     100.0
     extrinsic_est_en:  false      # true: enable the online estimation of IMU-LiDAR extrinsic,
     extrinsic_T: [ 0.04165, 0.02326, -0.0284 ]
     extrinsic_R: [ 1, 0, 0,
@@ -38,7 +39,7 @@ noise_model:
 
 
 publish:
-    pub_voxel_map: true
+    pub_voxel_map: false
     publish_max_voxel_layer: 2         # only publish 0,1,2 layer's plane
     path_en:  true
     scan_publish_en:  true       # false: close all the point cloud output
